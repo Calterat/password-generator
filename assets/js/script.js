@@ -31,10 +31,10 @@ const generatePassword = () => {
   // - Array of users choice for Lowercase, Uppercase, Number, and/or Special Characters
   // - Objects defined after While loop prompt for prompt flow
   const choices = [
-    {name: lowCase, confirm: confirm("Do you want lowercase values?")},
-    {name: upCase, confirm: confirm("Do you want uppercase values?")},
-    {name: num, confirm: confirm("Do you want number values?")},
-    {name: specChar, confirm: confirm("Do you want Special Characters?")}
+    {name: lowCase, confirm: confirm("Are you OK with lowercase values?")},
+    {name: upCase, confirm: confirm("Are you OK with uppercase values?")},
+    {name: num, confirm: confirm("Are you OK with number values?")},
+    {name: specChar, confirm: confirm("Are you OK with Special Characters?")}
   ]
 
   // Generate Password
@@ -44,18 +44,26 @@ const generatePassword = () => {
   for (a = 0; a < passLength; a++) {
     let c = 0;
     digitChoices = [];
+    let choiceValidator = 0;
     for (b = 0; b < choices.length; b++) {
-        choices[b].confirm;
-      }
+      choices[b].confirm;
       // Check for true in 'confirm' in each object of 'choices'
       // when true - assign a random character from the objects named array to the digit choices array
       if (choices[b].confirm) {
         digitChoices[c] = choices[b].name[Math.floor(Math.random()*choices[b].name.length)];
         // increment digitChoices array location
         c++;
+        choiceValidator++;
       }
+    }
     // Assign password array location of parent for loop a random location from digitChoices
     password[a] = digitChoices[Math.floor(Math.random()*digitChoices.length)];
+    // If user declines all character types they are kicked out.
+    if (choiceValidator === 0) {
+      alert("You didn't select any charater types for your password!");
+      alert("No password for you!");
+      return "Click on the button again if you want to try to generate a password!";
+    }
   }
   return password;
 }
