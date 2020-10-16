@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Calterat/Portfolio">
-    <img src="./julian-img.jpeg" alt="Logo" width="80" height="100">
+    <img src="./assets/images/julian-img.jpeg" alt="Logo" width="80" height="100">
   </a>
 
   <h1 align="center">My Password Generator</h1>
@@ -38,7 +38,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![](./pass-gen-mockup.png)
+![](./assets/images/pass-gen-mockup.png)
 
 Here's a quick screenshot of my password generator page.
 
@@ -150,6 +150,7 @@ Thank you for taking the time to check out my Portfolio!
 [issues-url]: https://github.com/Calterat/password-generator/issues
 [license-url]: https://github.com/Calterat/password-generator/blob/master/LICENSE.txt
 [linkedin-url]: https://www.linkedin.com/in/julian-gillis-5ba18b20/
-![product-screenshot](./pass-gen-mockup.png)
+![personal-image](./assets/images/julian-img.jpeg)
+![product-screenshot](./assets/images/pass-gen-mockup.png)
 
 -->
