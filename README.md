@@ -148,8 +148,8 @@ Thank you for taking the time to check out my Portfolio!
 [GitHub Repository]: https://github.com/Calterat/password-generator
 [Password Generator URL]: https://calterat.github.io/password-generator/
 [issues-url]: https://github.com/Calterat/password-generator/issues
-[license-url]: https://github.com/Calterat/Portfolio/blob/master/LICENSE.txt
+[license-url]: https://github.com/Calterat/password-generator/blob/master/LICENSE.txt
 [linkedin-url]: https://www.linkedin.com/in/julian-gillis-5ba18b20/
-![product-screenshot](./design-layout.png)
+![product-screenshot](./pass-gen-mockup.png)
 
 -->
