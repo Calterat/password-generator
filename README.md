@@ -83,7 +83,7 @@ These are the tools you'll need if locally editing the source code.
 * VSCode or comparible text/code editor
     * https://code.visualstudio.com
 
-### Installation
+### Cloning
 
 1. Clone the repo (type in Bash or Terminal)
 ```
