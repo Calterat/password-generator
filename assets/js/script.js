@@ -31,11 +31,17 @@ const generatePassword = () => {
   // - Array of users choice for Lowercase, Uppercase, Number, and/or Special Characters
   // - Objects defined after While loop prompt for prompt flow
   const choices = [
-    {name: lowCase, confirm: confirm("Do you want lowercase values?")},
-    {name: upCase, confirm: confirm("Do you want uppercase values?")},
-    {name: num, confirm: confirm("Do you want number values?")},
-    {name: specChar, confirm: confirm("Do you want special characters?")}
+    {name: lowCase, confirm: confirm("Do you want lowercase values?"), count: 0},
+    {name: upCase, confirm: confirm("Do you want uppercase values?"), count: 0},
+    {name: num, confirm: confirm("Do you want number values?"), count: 0},
+    {name: specChar, confirm: confirm("Do you want special characters?"), count: 0}
   ]
+
+  const resetCounts = () => {
+    for (i = 0; i < choices.length; i++) {
+      choices[i].count = 0;
+    }
+  }
   
   // Generate Password
   // - for loop runs for as many digits as user requested
@@ -68,21 +74,39 @@ const generatePassword = () => {
         return;
       }
     }
+    return false;
   }
 
-  // Validate at least one character of each character type selected is present
-  const validate = () => {
-    if (password.length === 0) {
-      return true;
-    } else {
-      return false;
+  // generate and validate
+  const fullCycle = () => {
+    if (!generate()) {
+      validate();
     }
   }
 
-   // Run password generator in validator loop
-  while (validate()) {
-    generate();
+  // Validate at least one character of each character type selected is present by running a count. if any come back as 0, generate() reruns.
+  const validate = () => {
+    resetCounts();    
+    for (d = 0; d < passLength; d++) {
+      for (e = 0; e < choices.length; e++) {
+        for (f = 0; f < choices[e].name.length; f++) {
+          if (password[d] === choices[e].name[f]) {
+            choices[e].count = choices[e].count + 1;
+          }
+        }
+      }
+    }
+    debugger;
+    for (g = 0; g < choices.length; g++) {
+      if (choices[g].confirm && choices[g].count === 0) {
+        return fullCycle();
+      }
+    }
   }
+
+  
+   // runs the full cycle of generating and validating
+  fullCycle();
 
   // Concatenate the password array to produce one string to return
   let concatenatedPassword = password[0];
