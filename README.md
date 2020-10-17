@@ -8,7 +8,7 @@
   <h1 align="center">My Password Generator</h1>
 
   <p align="center">
-    Julian Gillis' Password Generator
+    Julian Gillis' Random Password Generator
     <br />
     <a href="https://github.com/Calterat/password-generator"><strong>Explore the docs »</strong></a>
     <br />
@@ -40,9 +40,23 @@
 
 ![](./assets/images/pass-gen-mockup.png)
 
-Here's a quick screenshot of my password generator page.
+Here's a quick screenshot of the password generator page.
 
-This is my password generator. This displays my abilities with JavaScript. The page holds my JavaScript that generates a password based on user criteria.
+Under the hood of this webpage is my random password generator. This displays some of my abilities with JavaScript. The user is asked 5 questions for generating the password. How long do you want the password? Do you want lowercase letters? Do you want uppercase letters? Do you want numbers? Do you want special characters?
+
+Making something random wasn't too terribly bad. After all, if you select all character types there are a ton of characters to choose from. 
+
+HOWEVER, the validations to all user inputs and the validation to determine that for each character set chosen at least one character was used in any produced password was a bit of a challange. Especially the latter of the two. The validation code was almost three times that of the actual random selectors.
+
+I realize this is a beginners project, and these are the learned tools used to create this in JavaScript:
+ - Variables
+ - Arrays
+ - Objects
+ - while and for loops
+ - if/else conditional statements
+ - functions
+
+
 
 
 ### Built With
@@ -51,6 +65,7 @@ This is my password generator. This displays my abilities with JavaScript. The p
 * [CSS]()
 * [JavaScript]()
 * [VSCODE]()
+* [GIT]()
 
 
 
@@ -82,7 +97,7 @@ git clone git@github.com:Calterat/password-generator.git
 
 [My Portfolio](https://calterat.github.io/password-generator/)
 
-Please review and navigate to assess my skills as a front-end web developer.
+Please press the 'Generate Button' and use it to produce a random password using the character types you selected.
 
 
 
@@ -124,9 +139,7 @@ Project Link: [https://github.com/Calterat/password-generator](https://github.co
 <!-- Additional Notes -->
 ## Additional Notes
 
-My Facebook page is currently not public, but check the link later! It will be back up soon!
-
-Thank you for taking the time to check out my Portfolio!
+Thank you for taking the time to check out and use my random password generator!
 
 
 <!-- ACKNOWLEDGEMENTS -->
