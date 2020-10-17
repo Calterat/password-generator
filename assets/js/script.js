@@ -96,7 +96,6 @@ const generatePassword = () => {
         }
       }
     }
-    debugger;
     for (g = 0; g < choices.length; g++) {
       if (choices[g].confirm && choices[g].count === 0) {
         return fullCycle();
