@@ -31,43 +31,46 @@ const generatePassword = () => {
   // - Array of users choice for Lowercase, Uppercase, Number, and/or Special Characters
   // - Objects defined after While loop prompt for prompt flow
   const choices = [
-    {name: lowCase, confirm: confirm("Are you OK with lowercase values?"), count: 0},
-    {name: upCase, confirm: confirm("Are you OK with uppercase values?") count: 0},
-    {name: num, confirm: confirm("Are you OK with number values?"), count: 0},
-    {name: specChar, confirm: confirm("Are you OK with Special Characters?"), count: 0}
+    {name: lowCase, confirm: confirm("Are you OK with lowercase values?")},
+    {name: upCase, confirm: confirm("Are you OK with uppercase values?")},
+    {name: num, confirm: confirm("Are you OK with number values?")},
+    {name: specChar, confirm: confirm("Are you OK with Special Characters?")}
   ]
 
   // Generate Password
   // - for loop runs for as many digits as user requested
   // - If an array piece is true, pull a random digit from that object's named array, and place in temp digit array
   // - random the temp digit array to select the actual digit to be placed in the permanent password array
-  for (a = 0; a < passLength; a++) {
-    let c = 0;
-    digitChoices = [];
-    let choiceValidator = 0;
-    for (b = 0; b < choices.length; b++) {
-      choices[b].confirm;
-      // Check for true in 'confirm' in each object of 'choices'
-      // when true - assign a random character from the objects named array to the digit choices array
-      if (choices[b].confirm) {
-        digitChoices[c] = choices[b].name[Math.floor(Math.random()*choices[b].name.length)];
-        // increment digitChoices array location as well if choices.confirm is true
-        c++;
-        choiceValidator++;
+  const generate = () => {
+    for (a = 0; a < passLength; a++) {
+      let c = 0;
+      digitChoices = [];
+      let choiceValidator = 0;
+      for (b = 0; b < choices.length; b++) {
+        choices[b].confirm;
+        // Check for true in 'confirm' in each object of 'choices'
+        // when true - assign a random character from the objects named array to the digit choices array
+        if (choices[b].confirm) {
+          digitChoices[c] = choices[b].name[Math.floor(Math.random()*choices[b].name.length)];
+          // increment digitChoices array location as well if choices.confirm is true
+          c++;
+          choiceValidator++;
+        }
+      }
+      // Assign password array location of parent 'for' loop a random location from digitChoices
+      password[a] = digitChoices[Math.floor(Math.random()*digitChoices.length)];
+      // If user declines all character types they are kicked out.
+      if (choiceValidator === 0) {
+        alert("You didn't select any charater types for your password!");
+        alert("No password for you!");
+        password[0] = false;
+        return;
       }
     }
-    // Assign password array location of parent 'for' loop a random location from digitChoices
-    password[a] = digitChoices[Math.floor(Math.random()*digitChoices.length)];
-    // If user declines all character types they are kicked out.
-    if (choiceValidator === 0) {
-      alert("You didn't select any charater types for your password!");
-      alert("No password for you!");
-      return "Click on the button again if you want to try to generate a password!";
-    }
   }
-
-  // Ensure that if a character set is selected that one random character from that set shows at least once
-
+  // Run password generator
+  generate();
+  // Ensure that if a character set is selected that at least one random character from that set shows up in password
 
 
 
@@ -78,8 +81,13 @@ const generatePassword = () => {
   for (i = 1; i < password.length; i++) {
     concatenatedPassword = concatenatedPassword + password[i];
   }
-  // Return concatenated password
-  return concatenatedPassword;
+
+  // Return concatenated password if choiceValidator didn't return 'true'
+  if (!password[0]) {
+    return "Click the button if you want a password generated";
+  } else {
+    return concatenatedPassword;
+  }
 }
 
 
