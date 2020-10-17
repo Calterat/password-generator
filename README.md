@@ -44,11 +44,11 @@ Here's a quick screenshot of the password generator page.
 
 Under the hood of this webpage is my random password generator. This displays some of my abilities with JavaScript. The user is asked 5 questions for generating the password. How long do you want the password? Do you want lowercase letters? Do you want uppercase letters? Do you want numbers? Do you want special characters?
 
-Making something random wasn't too terribly bad. After all, if you select all character types there are a ton of characters to choose from. 
+Pulling random characters to fill up a password string wasn't too terribly difficult... After all, if you select all character types there are a ton of characters to choose from. 
 
 HOWEVER, the validations to all user inputs and the validation to determine that for each character set chosen at least one character was used in any produced password was a bit of a challange. Especially the latter of the two. The validation code was almost three times that of the actual random selectors.
 
-I realize this is a beginners project, and these are the learned tools used to create this in JavaScript:
+These are the learned tools in JavaSCript that I used to accomplish the this project:
  - Variables
  - Arrays
  - Objects
