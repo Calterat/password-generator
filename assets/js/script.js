@@ -15,7 +15,7 @@ const generatePassword = () => {
   // Prompt User for Password Criteria
   // - Starts while loop for validating user's password length input
   let lengthPrompt = true;
-  // - Assigning this globally to not be stuck in while loop
+  // - Assigning this globally for while loop to modify but not contain as it's required the for loop that generates the password
   let passLength = NaN; 
   // - Ask how many characters the password will be and parseInt the value to be used in loops.
   while (lengthPrompt) {
@@ -31,16 +31,16 @@ const generatePassword = () => {
   // - Array of users choice for Lowercase, Uppercase, Number, and/or Special Characters
   // - Objects defined after While loop prompt for prompt flow
   const choices = [
-    {name: lowCase, confirm: confirm("Are you OK with lowercase values?")},
-    {name: upCase, confirm: confirm("Are you OK with uppercase values?")},
-    {name: num, confirm: confirm("Are you OK with number values?")},
-    {name: specChar, confirm: confirm("Are you OK with Special Characters?")}
+    {name: lowCase, confirm: confirm("Are you OK with lowercase values?"), count: 0},
+    {name: upCase, confirm: confirm("Are you OK with uppercase values?") count: 0},
+    {name: num, confirm: confirm("Are you OK with number values?"), count: 0},
+    {name: specChar, confirm: confirm("Are you OK with Special Characters?"), count: 0}
   ]
 
   // Generate Password
   // - for loop runs for as many digits as user requested
-  // - If an array piece is true, pull a random digit from that object, and place in temp password array
-  // - random the temp password array to select the actual digit to be placed in the perminant password
+  // - If an array piece is true, pull a random digit from that object's named array, and place in temp digit array
+  // - random the temp digit array to select the actual digit to be placed in the permanent password array
   for (a = 0; a < passLength; a++) {
     let c = 0;
     digitChoices = [];
@@ -56,7 +56,7 @@ const generatePassword = () => {
         choiceValidator++;
       }
     }
-    // Assign password array location of parent for loop a random location from digitChoices
+    // Assign password array location of parent 'for' loop a random location from digitChoices
     password[a] = digitChoices[Math.floor(Math.random()*digitChoices.length)];
     // If user declines all character types they are kicked out.
     if (choiceValidator === 0) {
@@ -65,6 +65,13 @@ const generatePassword = () => {
       return "Click on the button again if you want to try to generate a password!";
     }
   }
+
+  // Ensure that if a character set is selected that one random character from that set shows at least once
+
+
+
+
+  
 
   // Concatenate the password array to produce one string to return
   let concatenatedPassword = password[0];
