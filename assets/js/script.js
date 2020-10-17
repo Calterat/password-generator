@@ -12,7 +12,7 @@ const generatePassword = () => {
   // - The password array that will be built by the for loop
   let password = [];
 
-  // Prompt User for Password Criteria
+  // Prompt User for Password Length
   // - Starts while loop for validating user's password length input
   let lengthPrompt = true;
   // - Assigning this globally for while loop to modify but not contain as it's required the for loop that generates the password
@@ -31,12 +31,12 @@ const generatePassword = () => {
   // - Array of users choice for Lowercase, Uppercase, Number, and/or Special Characters
   // - Objects defined after While loop prompt for prompt flow
   const choices = [
-    {name: lowCase, confirm: confirm("Are you OK with lowercase values?")},
-    {name: upCase, confirm: confirm("Are you OK with uppercase values?")},
-    {name: num, confirm: confirm("Are you OK with number values?")},
-    {name: specChar, confirm: confirm("Are you OK with Special Characters?")}
+    {name: lowCase, confirm: confirm("Do you want lowercase values?")},
+    {name: upCase, confirm: confirm("Do you want uppercase values?")},
+    {name: num, confirm: confirm("Do you want number values?")},
+    {name: specChar, confirm: confirm("Do you want special characters?")}
   ]
-
+  
   // Generate Password
   // - for loop runs for as many digits as user requested
   // - If an array piece is true, pull a random digit from that object's named array, and place in temp digit array
@@ -47,6 +47,7 @@ const generatePassword = () => {
       digitChoices = [];
       let choiceValidator = 0;
       for (b = 0; b < choices.length; b++) {
+        // propmts user if character set is desired
         choices[b].confirm;
         // Check for true in 'confirm' in each object of 'choices'
         // when true - assign a random character from the objects named array to the digit choices array
@@ -68,13 +69,20 @@ const generatePassword = () => {
       }
     }
   }
-  // Run password generator
-  generate();
-  // Ensure that if a character set is selected that at least one random character from that set shows up in password
 
+  // Validate at least one character of each character type selected is present
+  const validate = () => {
+    if (password.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-
-  
+   // Run password generator in validator loop
+  while (validate()) {
+    generate();
+  }
 
   // Concatenate the password array to produce one string to return
   let concatenatedPassword = password[0];
@@ -89,7 +97,6 @@ const generatePassword = () => {
     return concatenatedPassword;
   }
 }
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
