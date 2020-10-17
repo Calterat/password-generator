@@ -51,7 +51,7 @@ const generatePassword = () => {
       // when true - assign a random character from the objects named array to the digit choices array
       if (choices[b].confirm) {
         digitChoices[c] = choices[b].name[Math.floor(Math.random()*choices[b].name.length)];
-        // increment digitChoices array location
+        // increment digitChoices array location as well if choices.confirm is true
         c++;
         choiceValidator++;
       }
@@ -65,7 +65,14 @@ const generatePassword = () => {
       return "Click on the button again if you want to try to generate a password!";
     }
   }
-  return password;
+
+  // Concatenate the password array to produce one string to return
+  let concatenatedPassword = password[0];
+  for (i = 1; i < password.length; i++) {
+    concatenatedPassword = concatenatedPassword + password[i];
+  }
+  // Return concatenated password
+  return concatenatedPassword;
 }
 
 
