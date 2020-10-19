@@ -22,7 +22,7 @@ const generatePassword = () => {
   while (lengthPrompt) {
     passLength = prompt("How long do you want your password? (Must be an Integer that is a Minimum of 8 Characters and Maximum of 128)");
     passLength = parseInt(passLength);
-    if (passLength > 7 && passLength < 128) {
+    if (passLength > 7 && passLength < 129) {
       lengthPrompt = false;
     } else {
       alert("Please type in numbers (whole integers) within the correct parameters for your input");
